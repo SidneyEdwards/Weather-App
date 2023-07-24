@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- This is a CDN for the Bootstrap library. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <!-- This is a CDN for the jQuery UI library. -->
+  <link
+  rel="stylesheet"
+  href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+/>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <header class="fs-1 text-white bg-primary bg-gradient p-4 mb-4 text-center header">Weather Dashboard</header>
+
+  <main class="container">
+    <div class="row">
+      <div class="col-md-6 col-xl-4">
+        <div class="card p-2 m-2">
+          <h2 class="h4 card-header custom-card-header" for="search">Search for a City:</h2>
+          <div class="input-group mb-3 mt-2">
+            <input type="text" class="form-control city-input" placeholder="Search City" aria-label="Search City" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+          </div> 
+          <button onclick="clearHistory()" class="btn btn-primary" type="button" id="clear-history">Clear History</button>
+          <ul class="list-group"></ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-8">
+        <div class="card p-2 m-2">
+          <div class="card-body">
+            <div class="city-info d-flex align-items-center">
+              <h2 class="city card-title">Weather in Berlin</h2>
+              <h2 id="currentDay" class="lead mx-3"></h2>
+              <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="weather-icon mx-3" />
+            </div>
+            <p class="card-text">
+              <div class="description mb-2 text-capitalize">clear sky</div>
+              <div class="temp mb-2">47℉</div>
+              <div class="humidity mb-2">Humidity: 70%</div>
+              <div div class="wind mb-2">Wind Speed: 7mph</div>
+          </div>
+        </div>
+        <div class="col-sm-12 mx-4 mt-4" id="five-day">
+          <h3>5 Day Forecast</h3>
+          <div class="row text-light gx-3 ">
+            <div id="forecast-1" class="forecast col-sm-2 bg-primary col-md-12 col-xl-2 text-white m-2 p-2 rounded">
+              <p></p>
+              <p class="weather-icon mx-3"></p>
+              <p class="temp mb-2">℉</p>
+              <p id="humidity" class="mb-2">Humidity: </p>
+              <p id="wind" class="mb-2">Wind Speed: </p>
+            </div>
+            <div id="forecast-2" class="forecast col-sm-2 bg-primary col-md-12 col-xl-2 text-white m-2 p-2 rounded">              
+              <p></p>
+              <p class="weather-icon mx-3"></p>
+              <p class="temp mb-2">℉</p>
+              <p id="humidity" class="mb-2">Humidity: </p>
+              <p id="wind" class="mb-2">Wind Speed: </p>
+            </div>
+            <div id="forecast-3" class="forecast col-sm-2 bg-primary col-md-12 col-xl-2 text-white m-2 p-2 rounded">              
+              <P></P>
+              <p class="weather-icon mx-3"></p>
+              <p class="temp mb-2">℉</p>
+              <p id="humidity" class="mb-2">Humidity: </p>
+              <p id="wind" class="mb-2">Wind Speed: </p>
+            </div>
+            <div id="forecast-4" class="forecast col-sm-2 bg-primary col-md-12 col-xl-2 text-white m-2 p-2 rounded">              
+              <p></p>
+              <p class="weather-icon mx-3"></p>
+              <p class="temp mb-2">℉</p>
+              <p id="humidity" class="mb-2">Humidity: </p>
+              <p id="wind" class="mb-2">Wind Speed: </p>
+            </div>
+            <div id="forecast-5" class="forecast col-sm-2 bg-primary col-md-12 col-xl-2 text-white m-2 p-2 rounded">              
+              <p></p>
+              <p class="weather-icon mx-3"></p>
+              <p class="temp mb-2">℉</p>
+              <p id="humidity" class="mb-2">Humidity: </p>
+              <p id="wind" class="mb-2">Wind Speed: </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <!-- A CDN for the dayjs library. -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+  crossorigin="anonymous"
+></script>
+<!-- This is a CDN for the jQuery library. -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- This is a CDN for the Bootstrap library. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
