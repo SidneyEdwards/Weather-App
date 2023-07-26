@@ -72,7 +72,7 @@ forecastWeather();
     });
     },
 
-
+    search: function() {
     const cityName = document.querySelector(".city-input").value;
     this.fetchWeather(cityName);
     this.forecastWeather(cityName);
@@ -84,6 +84,7 @@ forecastWeather();
 onClick: function (event) {
     console.log(event.target.textContent)
     weather.fetchWeather(event.target.textContent)
+}
 };
 
 
