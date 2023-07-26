@@ -46,23 +46,23 @@ forecastWeather();
 },
 
 
-  // Fetch and display 5-day forecast
+
     forecastWeather: function (city) {
     fetch(
         "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + this.apiKey
     )
     .then((response) => response.json())
     .then((data) => {
-  // Filter the forecasts to only include one forecast per day
+
         const forecasts = data.list.filter((item, index) => index % 8 === 0);
     
         for (let i = 0; i < forecasts.length && i < 5; i++) {
     const { dt_txt: date, weather: [{icon}], main: {temp, humidity}, wind: {speed} } = forecasts[i];
     
-  // Get forecast card by index
+
     const forecastCard = document.querySelector(`#forecast-${i+1}`);
     
-  // Display date, weather icon, temperature, humidity, and wind speed
+
     forecastCard.querySelector('p').innerText = dayjs(date).format('M/D/YYYY hA');
     forecastCard.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}.png" alt="weather icon" />`;
     forecastCard.querySelector('.temp').innerText = temp + "℉";
@@ -72,8 +72,7 @@ forecastWeather();
     });
     },
 
-//This is a function that is being called when the button is clicked. It is logging the text content of the button and then calling the fetchWeather function.
-search: function() {
+
     const cityName = document.querySelector(".city-input").value;
     this.fetchWeather(cityName);
     this.forecastWeather(cityName);
@@ -81,14 +80,13 @@ search: function() {
 },
 
 
-//This is a function that is being called when the button is clicked. It is logging the text content of the button and then calling the fetchWeather function
+
 onClick: function (event) {
     console.log(event.target.textContent)
     weather.fetchWeather(event.target.textContent)
-}
 };
 
-//This is an event listener that is listening for a click on the button. When the button is clicked it is calling the search function.
+
 document.getElementById("button-addon2").addEventListener("click", function() {
 weather.search();
 });
@@ -102,33 +100,30 @@ setInterval(displayTime, 60000);
 
 
 
-//Add an event listener to the input field to listen for the "keydown" event
 document.querySelector(".city-input").addEventListener("keydown", function(event) {
 
-//Search for a city when 'Enter' is hit
+
 if (event.keyCode === 13) {
     weather.search();
 }
 });
 
-//This is creating a button for each city in the search history. 
+
 for (let i = 0; i < searchHistory.length; i++) {
 let btn = document.createElement('button');
 btn.setAttribute("class", "btn btn-outline-primary mt-2")
 btn.textContent = searchHistory[i]
 btn.onclick = weather.onClick
 document.querySelector(".list-group").append(btn)
-
-
 }
 
 
 
-//It clears the local storage and removes all the list items from the history list
+
 function clearHistory() {
-  localStorage.clear();
-  const historyList = document.querySelector(".list-group");
-  while (historyList.firstChild) {
+localStorage.clear();
+const historyList = document.querySelector(".list-group");
+while (historyList.firstChild) {
     historyList.removeChild(historyList.firstChild);
 }
 }
