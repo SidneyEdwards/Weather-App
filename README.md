@@ -4,5 +4,4 @@
 
 # Contributors: Sidney Edwards under the guidance of Caleb Crum and AskBCS. Background image from Unsplash.com.
 
-
 ![Weather-Dashboard](https://github.com/SidneyEdwards/Weather-App/assets/124628764/d3317c78-fdca-4ab6-920a-92e60d02b959)
